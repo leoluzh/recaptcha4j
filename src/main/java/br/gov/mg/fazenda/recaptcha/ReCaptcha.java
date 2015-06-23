@@ -48,7 +48,10 @@ public interface ReCaptcha {
 
 	public String createRecaptchaHtml( String id , String theme , String type , String callback , String classes , String style );
 
+	public String createRecaptchaHtml( String id , String theme , String type , String callback , String classes , String style , String size );
 
+	public String createRecaptchaHtml( String id , String theme , String type , String callback , String classes , String style , String size , String tabIndex );
+	
 	/**
 	 * Validates a reCaptcha response.
 	 *

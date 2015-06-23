@@ -104,37 +104,52 @@ public class ReCaptchaImpl implements ReCaptcha {
 				properties.getProperty(ReCaptchaProperties.TYPE_KEY,null) ,
 				properties.getProperty(ReCaptchaProperties.CALLBACK_KEY,null) ,
 				properties.getProperty(ReCaptchaProperties.CLASSES_KEY,null),
-				properties.getProperty(ReCaptchaProperties.STYLE_KEY,null));
+				properties.getProperty(ReCaptchaProperties.STYLE_KEY,null),
+				properties.getProperty(ReCaptchaProperties.SIZE_KEY,null), 
+				properties.getProperty(ReCaptchaProperties.TABINDEX_KEY,null),
+				properties.getProperty(ReCaptchaProperties.EXPIREDCALLBACK_KEY,null));
+		
 	}
 
 	public String createRecaptchaHtml( String divId , String theme ){
-		return createRecaptchaHtml( divId , theme , null , null , null , null );
+		return createRecaptchaHtml( divId , theme , null , null , null , null , null , null , null );
 	}
 
-
 	public String createRecaptchaHtml( String divId , String theme , String type){
-		return createRecaptchaHtml( divId , theme , type , null , null , null );
+		return createRecaptchaHtml( divId , theme , type , null , null , null , null , null , null );
 	}
 
 	public String createRecaptchaHtml( String divId , String theme , String type , String callback ){
-		return createRecaptchaHtml( divId , theme , type , callback , null , null );
+		return createRecaptchaHtml( divId , theme , type , callback , null , null , null , null , null );
 	}
 
 	public String createRecaptchaHtml( String divId , String theme , String type , String callback , String classes ){
-		return createRecaptchaHtml( divId , theme , type , callback , classes , null );
+		return createRecaptchaHtml( divId , theme , type , callback , classes , null , null , null , null );
+	}
+	
+	public String createRecaptchaHtml( String divId , String theme , String type , String callback , String classes , String style ){
+		return createRecaptchaHtml( divId , theme , type , callback , classes , style , null , null , null );
 	}
 
-	public String createRecaptchaHtml( String divId , String theme , String type , String callback , String classes , String style ){
+	public String createRecaptchaHtml( String divId , String theme , String type , String callback , String classes , String style , String size ){
+		return createRecaptchaHtml( divId , theme , type , callback , classes , style , size , null , null );
+	}
+	
+	public String createRecaptchaHtml( String divId , String theme , String type , String callback , String classes , String style , String size , String tabIndex ){
+		return createRecaptchaHtml( divId , theme , type , callback , classes , style , size , tabIndex , null );
+	}
+	
+	public String createRecaptchaHtml( String divId , String theme , String type , String callback , String classes , String style , String size , String tabIndex , String expiredCallback ){
 
 		StringBuilder html = new StringBuilder();
-		html.append( ReCaptchaJsApi.div( this.siteKey , divId , theme , type , callback , classes , style ) );
+		html.append( ReCaptchaJsApi.div( this.siteKey , divId , theme , type , callback , classes , style , size , tabIndex , expiredCallback ) );
 
 		if( includeNoScript ){
 			html.append( ReCaptchaJsApi.noScript( this.siteKey , this.secure ) );
 		}
 
 		return html.toString();
-
+		
 	}
 
 	public void setProxy( Proxy proxy ){

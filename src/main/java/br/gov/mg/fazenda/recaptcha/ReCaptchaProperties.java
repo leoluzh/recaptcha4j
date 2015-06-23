@@ -27,12 +27,17 @@ package br.gov.mg.fazenda.recaptcha;
 
 public class ReCaptchaProperties {
 
-	public static String ID_KEY = "grecaptcha-id" ;
-	public static String THEME_KEY = "grecaptcha-data-theme" ;
-	public static String TYPE_KEY = "grecaptcha-data-type" ;
-	public static String CALLBACK_KEY = "grecaptcha-data-callback" ;
-	public static String CLASSES_KEY = "grecaptcha-extension-classes" ;
-	public static String STYLE_KEY = "grecaptcha-extension-style" ;
+	public static final String ID_KEY = "grecaptcha-id" ;
+	public static final String THEME_KEY = "grecaptcha-data-theme" ;
+	public static final String TYPE_KEY = "grecaptcha-data-type" ;
+	public static final String CALLBACK_KEY = "grecaptcha-data-callback" ;
+	public static final String CLASSES_KEY = "grecaptcha-extension-classes" ;
+	public static final String STYLE_KEY = "grecaptcha-extension-style" ;
+	
+	public static final String SIZE_KEY = "grecaptcha-data-size" ;
+	public static final String TABINDEX_KEY = "grecaptcha-data-tabindex" ;
+	public static final String EXPIREDCALLBACK_KEY = "grecaptcha-data-expired-callback" ;
+	
 
 	public static final String THEME_VALUE_DARK = "dark" ;
 	public static final String THEME_VALUE_LIGHT = "light" ;
